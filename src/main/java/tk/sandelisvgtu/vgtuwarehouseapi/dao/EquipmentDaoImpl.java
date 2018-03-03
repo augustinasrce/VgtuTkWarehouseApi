@@ -9,10 +9,7 @@ import java.util.List;
 public class EquipmentDaoImpl implements EquipmentDao {
 
     List<Equipment> equipmentList = ImmutableList.of(
-            new Equipment("1", "Petzl Atache", "achujeni karabai", 20, new Date()),
-            new Equipment("5", "CT Helmas", "Salmas kaip salmas", 5, new Date()),
-            new Equipment("6", "Grivel Monster", "ledkirtis shudinas bbz kaip kas", 2, new Date()));
-
+            new Equipment(1L, "Petzl Atache", "achujeni karabai", 20, new Date()));
     @Override
     public List<Equipment> getAll() {
         return equipmentList;
