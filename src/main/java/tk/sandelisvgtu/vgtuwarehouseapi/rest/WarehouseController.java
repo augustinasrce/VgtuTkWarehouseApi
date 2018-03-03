@@ -2,10 +2,7 @@ package tk.sandelisvgtu.vgtuwarehouseapi.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import tk.sandelisvgtu.vgtuwarehouseapi.model.Equipment;
 import tk.sandelisvgtu.vgtuwarehouseapi.repo.EquipmentRepository;
 
@@ -24,7 +21,7 @@ public class WarehouseController {
     }
 
     @RequestMapping(value = "/equipment", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Equipment saveUpdateEquipment(@RequestParam Equipment equipment) {
+    public Equipment saveUpdateEquipment(@RequestBody Equipment equipment) {
         return equipmentRepository.save(equipment);
     }
 }
