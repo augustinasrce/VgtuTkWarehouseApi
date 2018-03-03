@@ -1,30 +1,34 @@
 package tk.sandelisvgtu.vgtuwarehouseapi.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 import java.util.Date;
 
-public class Equipment {
-    private String id;
+@Entity
+public class Equipment implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @NotBlank
     private String name;
+    @NotBlank
     private String description;
+    @NotBlank
     private int quantity;
+
     private Date purchaseDate;
 
-    public Equipment() {
-    }
-
-    public Equipment(String id, String name, String description, int quantity, Date purchaseDate) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.quantity = quantity;
-        this.purchaseDate = purchaseDate;
-    }
-
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

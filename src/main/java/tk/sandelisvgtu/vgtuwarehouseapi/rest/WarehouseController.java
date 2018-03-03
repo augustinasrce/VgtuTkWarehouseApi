@@ -1,10 +1,13 @@
 package tk.sandelisvgtu.vgtuwarehouseapi.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import tk.sandelisvgtu.vgtuwarehouseapi.dao.EquipmentDao;
 import tk.sandelisvgtu.vgtuwarehouseapi.model.Equipment;
+import tk.sandelisvgtu.vgtuwarehouseapi.repo.EquipmentRepository;
 
 import java.util.List;
 
@@ -13,10 +16,15 @@ import java.util.List;
 public class WarehouseController {
 
     @Autowired
-    private EquipmentDao equipmentDao;
+    private EquipmentRepository equipmentRepository;
 
-    @RequestMapping("/equipment/list")
-    public List<Equipment> getEquipmentList() {
-        return equipmentDao.getAll();
+    @RequestMapping("/equipment")
+    public Iterable<Equipment> getEquipmentList() {
+        return equipmentRepository.findAll();
+    }
+
+    @RequestMapping(value = "/equipment", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Equipment saveUpdateEquipment(@RequestParam Equipment equipment) {
+        return equipmentRepository.save(equipment);
     }
 }
