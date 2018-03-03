@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -19,9 +20,9 @@ public class Equipment implements Serializable {
     private String name;
     @NotBlank
     private String description;
-    @NotBlank
-    private int quantity;
-
+    @NotNull
+    private Integer quantity;
+    @NotNull
     private Date purchaseDate;
 
     public Long getId() {
