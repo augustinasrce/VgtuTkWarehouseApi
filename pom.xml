@@ -8,7 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-    <model>vgtu-warehouse-api</model>
+    <name>vgtu-warehouse-api</name>
 	<description>Warehouse for vgtu tk memebers</description>
 
 	<parent>
